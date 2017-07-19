@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace TuringMachine_CompTheory
 {
-    public class Program
+    class TuringMachine
     {
-        public static void Main(string[] args)
-        {
-            string tape ="=7+2";
-            
-        }
+
     }
 }
