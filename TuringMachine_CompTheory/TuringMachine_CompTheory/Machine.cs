@@ -28,6 +28,11 @@ namespace TuringMachine_CompTheory
             Move9L
         }
 
+        public void StartMachine()
+        {
+
+        }
+
         public Machine(string tape)
         {
             initialTape = tape;
