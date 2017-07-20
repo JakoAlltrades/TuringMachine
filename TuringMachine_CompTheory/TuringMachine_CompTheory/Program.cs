@@ -8,25 +8,12 @@ namespace TuringMachine_CompTheory
 {
     public class Program
     {
+        string tape = "=7+2";
         public static void Main(string[] args)
         {
-  
+            Machine m = new Machine(tape);
         }
-        string tape = "=7+2";
-        enum states
-        {
-            SeekPlus,
-            SeekNumL,
-            Move0L,
-            Move1L,
-            Move2L,
-            Move3L,
-            Move4L,
-            Move5L,
-            Move6L,
-            Move7L,
-            Move8L,
-            Move9L
-        }
+        
+        
     }
 }
