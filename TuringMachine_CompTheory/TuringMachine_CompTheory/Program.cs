@@ -10,6 +10,22 @@ namespace TuringMachine_CompTheory
     {
         public static void Main(string[] args)
         {
+            
+        }
+        enum states
+        {
+            SeekPlus,
+            SeekNumL,
+            Move0L,
+            Move1L,
+            Move2L,
+            Move3L,
+            Move4L,
+            Move5L,
+            Move6L,
+            Move7L,
+            Move8L,
+            Move9L
         }
     }
 }
