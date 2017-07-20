@@ -10,8 +10,9 @@ namespace TuringMachine_CompTheory
     {
         public static void Main(string[] args)
         {
-            
+  
         }
+        string tape = "=7+2";
         enum states
         {
             SeekPlus,
