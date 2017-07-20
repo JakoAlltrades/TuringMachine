@@ -178,6 +178,50 @@ namespace TuringMachine_CompTheory
                     MoveRight();
                 }
             }
+            else if(curState.Equals(states.SeekNumL))
+            {
+                //This state has multipleSeek Characters ie (0-9)
+                replace = 'x';
+                if(curChar >= 48 && curChar <= 57)
+                {
+                    tapeArray[curPos] = replace;
+                    switch(curChar)
+                    {
+                        case '0':
+                            curState = states.Move0L;
+                            break;
+                        case '1':
+                            curState = states.Move1L;
+                            break;
+                        case '2':
+                            curState = states.Move2L;
+                            break;
+                        case '3':
+                            curState = states.Move3L;
+                            break;
+                        case '4':
+                            curState = states.Move4L;
+                            break;
+                        case '5':
+                            curState = states.Move5L;
+                            break;
+                        case '6':
+                            curState = states.Move6L;
+                            break;
+                        case '7':
+                            curState = states.Move7L;
+                            break;
+                        case '8':
+                            curState = states.Move8L;
+                            break;
+                        case '9':
+                            curState = states.Move9L;
+                            break;
+                    }
+                    curTape = TapeArrayToString(tapeArray);
+                }
+                MoveLeft();
+            }
            
         }
 
