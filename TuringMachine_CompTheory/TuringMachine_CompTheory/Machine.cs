@@ -12,6 +12,7 @@ namespace TuringMachine_CompTheory
         Enum curState = states.SeekPlus;
         private string initialTape;
         string curTape;
+        bool tapeIsDone = false;
         enum states
         {
             SeekPlus,
@@ -150,8 +151,46 @@ namespace TuringMachine_CompTheory
 
         public void StartMachine()
         {
-
+            while(!tapeIsDone)
+            {
+                TapeProcess();
+            }
         }
+
+        private void TapeProcess()
+        {
+            char[] tapeArray = curTape.ToArray();
+            char seek, replace;
+            char curChar = curTape[curPos];
+            if(curState.Equals(states.SeekPlus))
+            {
+                seek = '+';
+                replace = '+';
+                if(curChar == seek)
+                {
+                    tapeArray[curPos] = replace;
+                    curState = states.SeekNumL;
+                    curTape = TapeArrayToString(tapeArray);
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+            }
+           
+        }
+
+        private string TapeArrayToString(char[] tapeArray)
+        {
+            string result = "";
+            for(int j = 0; j < tapeArray.Length; j++)
+            {
+                result += tapeArray[j];
+            }
+            return result;  
+        }
+
 
         public Machine(string tape)
         {

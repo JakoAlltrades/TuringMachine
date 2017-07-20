@@ -13,6 +13,7 @@ namespace TuringMachine_CompTheory
         {
             string tape = "=7+2";
             Machine m = new Machine(tape);
+            m.StartMachine();
         }
         
         
