@@ -170,7 +170,6 @@ namespace TuringMachine_CompTheory
                 {
                     tapeArray[curPos] = replace;
                     curState = states.SeekNumL;
-                    curTape = TapeArrayToString(tapeArray);
                     MoveLeft();
                 }
                 else
@@ -218,11 +217,182 @@ namespace TuringMachine_CompTheory
                             curState = states.Move9L;
                             break;
                     }
-                    curTape = TapeArrayToString(tapeArray);
                 }
                 MoveLeft();
             }
-           
+            else if (curState.Equals(states.Move0L))
+            {
+                //actually checking if curPos is 0 for all basically
+                seek = '=';
+                replace = '0';
+                char[] zeroArray = { replace };
+                if (curPos == 0)
+                {
+                    tapeArray = zeroArray.Concat(tapeArray).ToArray();
+                    curState = states.SeekNumRAfter0;
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move1L))
+            {
+                //actually checking if curPos is 0 for all basically
+                seek = '=';
+                replace = '1';
+                char[] oneArray = { replace };
+                if (curPos == 0)
+                {
+                    tapeArray = oneArray.Concat(tapeArray).ToArray();
+                    curState = states.SeekNumRAfter1;
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move2L))
+            {
+                //actually checking if curPos is 0 for all basically
+                seek = '=';
+                replace = '2';
+                char[] twoArray = { replace };
+                if (curPos == 0)
+                {
+                    tapeArray = twoArray.Concat(tapeArray).ToArray();
+                    curState = states.SeekNumRAfter2;
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move3L))
+            {
+                //actually checking if curPos is 0 for all basically
+                seek = '=';
+                replace = '3';
+                char[] threeArray = { replace };
+                if (curPos == 0)
+                {
+                    tapeArray = threeArray.Concat(tapeArray).ToArray();
+                    curState = states.SeekNumRAfter3;
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move4L))
+            {
+                //actually checking if curPos is 0 for all basically
+                seek = '=';
+                replace = '4';
+                char[] fourArray = { replace };
+                if (curPos == 0)
+                {
+                    tapeArray = fourArray.Concat(tapeArray).ToArray();
+                    curState = states.SeekNumRAfter4;
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move5L))
+            {
+                //actually checking if curPos is 0 for all basically
+                seek = '=';
+                replace = '5';
+                char[] fiveArray = { replace };
+                if (curPos == 0)
+                {
+                    tapeArray = fiveArray.Concat(tapeArray).ToArray();
+                    curState = states.SeekNumRAfter2;
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move6L))
+            {
+                //actually checking if curPos is 0 for all basically
+                seek = '=';
+                replace = '6';
+                char[] sixArray = { replace };
+                if (curPos == 0)
+                {
+                    tapeArray = sixArray.Concat(tapeArray).ToArray();
+                    curState = states.SeekNumRAfter6;
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move7L))
+            {
+                //actually checking if curPos is 0 for all basically
+                seek = '=';
+                replace = '7';
+                char[] sevenArray = { replace };
+                if (curPos == 0)
+                {
+                    tapeArray = sevenArray.Concat(tapeArray).ToArray();
+                    curState = states.SeekNumRAfter7;
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move8L))
+            {
+                //actually checking if curPos is 0 for all basically
+                seek = '=';
+                replace = '8';
+                char[] eightArray = { replace };
+                if (curPos == 0)
+                {
+                    tapeArray = eightArray.Concat(tapeArray).ToArray();
+                    curState = states.SeekNumRAfter8;
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move9L))
+            {
+                //actually checking if curPos is 0 for all basically
+                seek = '=';
+                replace = '9';
+                char[] nineArray = { replace };
+                if (curPos == 0)
+                {
+                    tapeArray = nineArray.Concat(tapeArray).ToArray();
+                    curState = states.SeekNumRAfter9;
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+               
+            }
+            curTape = TapeArrayToString(tapeArray);
+            Console.WriteLine(TapeArrayToString(tapeArray));
         }
 
         private string TapeArrayToString(char[] tapeArray)
