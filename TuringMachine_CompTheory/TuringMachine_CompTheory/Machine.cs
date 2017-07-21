@@ -1476,7 +1476,29 @@ namespace TuringMachine_CompTheory
                     MoveLeft();
                 }
             }
-            else if (curState.Equals(states.Move0After1))
+            else if (curState.Equals(states.Move0After0))
+            {
+                seek = '0';
+                replace = '0';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move1After0))
             {
                 seek = '0';
                 replace = '1';
@@ -1498,29 +1520,7 @@ namespace TuringMachine_CompTheory
                     MoveLeft();
                 }
             }
-            else if (curState.Equals(states.Move0After2))
-            {
-                seek = '0';
-                replace = '2';
-                if (curPos == 0)
-                {
-                    goToBegin = false;
-                }
-                if (!goToBegin)
-                {
-                    if (curChar == seek)
-                    {
-                        tapeArray[curPos] = replace;
-                        curState = states.SeekPlus;
-                    }
-                    MoveRight();
-                }
-                else
-                {
-                    MoveLeft();
-                }
-            }
-            else if (curState.Equals(states.Move0After3))
+            else if (curState.Equals(states.Move3After0))
             {
                 seek = '0';
                 replace = '3';
