@@ -15,9 +15,12 @@ namespace TuringMachine_CompTheory
         bool tapeIsDone = false;
         bool goToEnd = false;
         bool goToBegin = false;
+        bool carryToNextSpace = false;
         enum states
         {
             SeekPlus,
+            SeekPlusAfterCarry,
+            SeekNumLAfterCarry,
             SeekNumL,
             Move0L,
             Move1L,
@@ -1011,10 +1014,186 @@ namespace TuringMachine_CompTheory
                 }
 
             }
-            else if(curState.Equals(states.Move2After7))
+            else if(curState.Equals(states.Move0After5))
             {
-                seek = '7';
+                seek = '5';
+                replace = '5';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move1After5))
+            {
+                seek = '5';
+                replace = '6';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move2After5))
+            {
+                seek = '5';
+                replace = '7';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move3After5))
+            {
+                seek = '5';
+                replace = '8';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move4After5))
+            {
+                seek = '5';
                 replace = '9';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move5After5))
+            {
+                seek = '5';
+                replace = '0';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlusAfterCarry;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move6After5))
+            {
+                seek = '5';
+                replace = '1';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlusAfterCarry;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move7After5))
+            {
+                seek = '5';
+                replace = '2';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlusAfterCarry;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if(curState.Equals(states.Move8After5))
+            {
+                seek = '5';
+                replace = '3';
                 if(curPos == 0)
                 {
                     goToBegin = false;
@@ -1022,6 +1201,270 @@ namespace TuringMachine_CompTheory
                 if(!goToBegin)
                 {
                     if(curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move9After5))
+            {
+                seek = '5';
+                replace = '4';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlusAfterCarry;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move0After6))
+            {
+                seek = '6';
+                replace = '6';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move1After6))
+            {
+                seek = '6';
+                replace = '7';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move2After6))
+            {
+                seek = '6';
+                replace = '8';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move3After6))
+            {
+                seek = '6';
+                replace = '9';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move4After6))
+            {
+                seek = '6';
+                replace = '0';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlusAfterCarry;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move5After6))
+            {
+                seek = '6';
+                replace = '1';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlusAfterCarry;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move6After6))
+            {
+                seek = '6';
+                replace = '2';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlusAfterCarry;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move7After6))
+            {
+                seek = '6';
+                replace = '3';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlusAfterCarry;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move8After6))
+            {
+                seek = '6';
+                replace = '4';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move9After6))
+            {
+                seek = '6';
+                replace = '5';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlusAfterCarry;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
+            else if (curState.Equals(states.Move2After7))
+            {
+                seek = '7';
+                replace = '9';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
                     {
                         tapeArray[curPos] = replace;
                         curState = states.SeekPlus;
