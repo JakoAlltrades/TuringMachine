@@ -13,6 +13,7 @@ namespace TuringMachine_CompTheory
         private string initialTape;
         string curTape;
         bool tapeIsDone = false;
+        bool goToEnd = false;
         enum states
         {
             SeekPlus,
@@ -138,6 +139,16 @@ namespace TuringMachine_CompTheory
             Move9After7,
             Move9After8,
             Move9After9,
+            Place0,
+            Place1,
+            Place2,
+            Place3,
+            Place4,
+            Place5,
+            Place6,
+            Place7,
+            Place8,
+            Place9,
             Carry1AndPlace0,
             Carry1AndPlace1,
             Carry1AndPlace2,
@@ -231,6 +242,7 @@ namespace TuringMachine_CompTheory
                     tapeArray = zeroArray.Concat(tapeArray).ToArray();
                     curState = states.SeekNumRAfter0;
                     MoveRight();
+                    goToEnd = true;
                 }
                 else
                 {
@@ -248,6 +260,7 @@ namespace TuringMachine_CompTheory
                     tapeArray = oneArray.Concat(tapeArray).ToArray();
                     curState = states.SeekNumRAfter1;
                     MoveRight();
+                    goToEnd = true;
                 }
                 else
                 {
@@ -265,6 +278,7 @@ namespace TuringMachine_CompTheory
                     tapeArray = twoArray.Concat(tapeArray).ToArray();
                     curState = states.SeekNumRAfter2;
                     MoveRight();
+                    goToEnd = true;
                 }
                 else
                 {
@@ -282,6 +296,7 @@ namespace TuringMachine_CompTheory
                     tapeArray = threeArray.Concat(tapeArray).ToArray();
                     curState = states.SeekNumRAfter3;
                     MoveRight();
+                    goToEnd = true;
                 }
                 else
                 {
@@ -299,6 +314,7 @@ namespace TuringMachine_CompTheory
                     tapeArray = fourArray.Concat(tapeArray).ToArray();
                     curState = states.SeekNumRAfter4;
                     MoveRight();
+                    goToEnd = true;
                 }
                 else
                 {
@@ -316,6 +332,7 @@ namespace TuringMachine_CompTheory
                     tapeArray = fiveArray.Concat(tapeArray).ToArray();
                     curState = states.SeekNumRAfter2;
                     MoveRight();
+                    goToEnd = true;
                 }
                 else
                 {
@@ -333,6 +350,7 @@ namespace TuringMachine_CompTheory
                     tapeArray = sixArray.Concat(tapeArray).ToArray();
                     curState = states.SeekNumRAfter6;
                     MoveRight();
+                    goToEnd = true;
                 }
                 else
                 {
@@ -350,6 +368,7 @@ namespace TuringMachine_CompTheory
                     tapeArray = sevenArray.Concat(tapeArray).ToArray();
                     curState = states.SeekNumRAfter7;
                     MoveRight();
+                    goToEnd = true;
                 }
                 else
                 {
@@ -367,6 +386,7 @@ namespace TuringMachine_CompTheory
                     tapeArray = eightArray.Concat(tapeArray).ToArray();
                     curState = states.SeekNumRAfter8;
                     MoveRight();
+                    goToEnd = true;
                 }
                 else
                 {
@@ -384,12 +404,562 @@ namespace TuringMachine_CompTheory
                     tapeArray = nineArray.Concat(tapeArray).ToArray();
                     curState = states.SeekNumRAfter9;
                     MoveRight();
+                    goToEnd = true;
                 }
                 else
                 {
                     MoveLeft();
                 }
                
+            }
+            else if(curState.Equals(states.SeekNumRAfter0))
+            {
+                //basically seeking the end of the string
+                replace = 'x';
+                if(curPos == tapeArray.Length - 1)
+                {
+                    goToEnd = false;
+                }
+                if (!goToEnd) {
+                    if (curChar >= 48 && curChar <= 57)
+                    {
+                        tapeArray[curPos] = replace;
+                        switch (curChar)
+                        {
+                            case '0':
+                                curState = states.Move0After0;
+                                break;
+                            case '1':
+                                curState = states.Move1After0;
+                                break;
+                            case '2':
+                                curState = states.Move2After0;
+                                break;
+                            case '3':
+                                curState = states.Move3After0;
+                                break;
+                            case '4':
+                                curState = states.Move4After0;
+                                break;
+                            case '5':
+                                curState = states.Move5After0;
+                                break;
+                            case '6':
+                                curState = states.Move6After0;
+                                break;
+                            case '7':
+                                curState = states.Move7After0;
+                                break;
+                            case '8':
+                                curState = states.Move8After0;
+                                break;
+                            case '9':
+                                curState = states.Move9After0;
+                                break;
+                        }
+                    }
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+
+            }
+            else if (curState.Equals(states.SeekNumRAfter1))
+            {
+                //basically seeking the end of the string
+                replace = 'x';
+                if (curPos == tapeArray.Length - 1)
+                {
+                    goToEnd = false;
+                }
+                if (!goToEnd)
+                {
+                    if (curChar >= 48 && curChar <= 57)
+                    {
+                        tapeArray[curPos] = replace;
+                        switch (curChar)
+                        {
+                            case '0':
+                                curState = states.Move0After1;
+                                break;
+                            case '1':
+                                curState = states.Move1After1;
+                                break;
+                            case '2':
+                                curState = states.Move2After1;
+                                break;
+                            case '3':
+                                curState = states.Move3After1;
+                                break;
+                            case '4':
+                                curState = states.Move4After1;
+                                break;
+                            case '5':
+                                curState = states.Move5After1;
+                                break;
+                            case '6':
+                                curState = states.Move6After1;
+                                break;
+                            case '7':
+                                curState = states.Move7After1;
+                                break;
+                            case '8':
+                                curState = states.Move8After1;
+                                break;
+                            case '9':
+                                curState = states.Move9After1;
+                                break;
+                        }
+                    }
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+
+            }
+            else if (curState.Equals(states.SeekNumRAfter2))
+            {
+                //basically seeking the end of the string
+                replace = 'x';
+                if (curPos == tapeArray.Length - 1)
+                {
+                    goToEnd = false;
+                }
+                if (!goToEnd)
+                {
+                    if (curChar >= 48 && curChar <= 57)
+                    {
+                        tapeArray[curPos] = replace;
+                        switch (curChar)
+                        {
+                            case '0':
+                                curState = states.Move0After2;
+                                break;
+                            case '1':
+                                curState = states.Move1After2;
+                                break;
+                            case '2':
+                                curState = states.Move2After2;
+                                break;
+                            case '3':
+                                curState = states.Move3After2;
+                                break;
+                            case '4':
+                                curState = states.Move4After2;
+                                break;
+                            case '5':
+                                curState = states.Move5After2;
+                                break;
+                            case '6':
+                                curState = states.Move6After2;
+                                break;
+                            case '7':
+                                curState = states.Move7After2;
+                                break;
+                            case '8':
+                                curState = states.Move8After2;
+                                break;
+                            case '9':
+                                curState = states.Move9After2;
+                                break;
+                        }
+                    }
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+
+            }
+            else if (curState.Equals(states.SeekNumRAfter3))
+            {
+                //basically seeking the end of the string
+                replace = 'x';
+                if (curPos == tapeArray.Length - 1)
+                {
+                    goToEnd = false;
+                }
+                if (!goToEnd)
+                {
+                    if (curChar >= 48 && curChar <= 57)
+                    {
+                        tapeArray[curPos] = replace;
+                        switch (curChar)
+                        {
+                            case '0':
+                                curState = states.Move0After3;
+                                break;
+                            case '1':
+                                curState = states.Move1After3;
+                                break;
+                            case '2':
+                                curState = states.Move2After3;
+                                break;
+                            case '3':
+                                curState = states.Move3After3;
+                                break;
+                            case '4':
+                                curState = states.Move4After3;
+                                break;
+                            case '5':
+                                curState = states.Move5After3;
+                                break;
+                            case '6':
+                                curState = states.Move6After3;
+                                break;
+                            case '7':
+                                curState = states.Move7After3;
+                                break;
+                            case '8':
+                                curState = states.Move8After3;
+                                break;
+                            case '9':
+                                curState = states.Move9After3;
+                                break;
+                        }
+                    }
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+
+            }
+            else if (curState.Equals(states.SeekNumRAfter4))
+            {
+                //basically seeking the end of the string
+                replace = 'x';
+                if (curPos == tapeArray.Length - 1)
+                {
+                    goToEnd = false;
+                }
+                if (!goToEnd)
+                {
+                    if (curChar >= 48 && curChar <= 57)
+                    {
+                        tapeArray[curPos] = replace;
+                        switch (curChar)
+                        {
+                            case '0':
+                                curState = states.Move0After4;
+                                break;
+                            case '1':
+                                curState = states.Move1After4;
+                                break;
+                            case '2':
+                                curState = states.Move2After4;
+                                break;
+                            case '3':
+                                curState = states.Move3After4;
+                                break;
+                            case '4':
+                                curState = states.Move4After4;
+                                break;
+                            case '5':
+                                curState = states.Move5After4;
+                                break;
+                            case '6':
+                                curState = states.Move6After4;
+                                break;
+                            case '7':
+                                curState = states.Move7After4;
+                                break;
+                            case '8':
+                                curState = states.Move8After4;
+                                break;
+                            case '9':
+                                curState = states.Move9After4;
+                                break;
+                        }
+                    }
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+
+            }
+            else if (curState.Equals(states.SeekNumRAfter5))
+            {
+                //basically seeking the end of the string
+                replace = 'x';
+                if (curPos == tapeArray.Length - 1)
+                {
+                    goToEnd = false;
+                }
+                if (!goToEnd)
+                {
+                    if (curChar >= 48 && curChar <= 57)
+                    {
+                        tapeArray[curPos] = replace;
+                        switch (curChar)
+                        {
+                            case '0':
+                                curState = states.Move0After5;
+                                break;
+                            case '1':
+                                curState = states.Move1After5;
+                                break;
+                            case '2':
+                                curState = states.Move2After5;
+                                break;
+                            case '3':
+                                curState = states.Move3After5;
+                                break;
+                            case '4':
+                                curState = states.Move4After5;
+                                break;
+                            case '5':
+                                curState = states.Move5After5;
+                                break;
+                            case '6':
+                                curState = states.Move6After5;
+                                break;
+                            case '7':
+                                curState = states.Move7After5;
+                                break;
+                            case '8':
+                                curState = states.Move8After5;
+                                break;
+                            case '9':
+                                curState = states.Move9After5;
+                                break;
+                        }
+                    }
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+
+            }
+            else if (curState.Equals(states.SeekNumRAfter6))
+            {
+                //basically seeking the end of the string
+                replace = 'x';
+                if (curPos == tapeArray.Length - 1)
+                {
+                    goToEnd = false;
+                }
+                if (!goToEnd)
+                {
+                    if (curChar >= 48 && curChar <= 57)
+                    {
+                        tapeArray[curPos] = replace;
+                        switch (curChar)
+                        {
+                            case '0':
+                                curState = states.Move0After6;
+                                break;
+                            case '1':
+                                curState = states.Move1After6;
+                                break;
+                            case '2':
+                                curState = states.Move2After6;
+                                break;
+                            case '3':
+                                curState = states.Move3After6;
+                                break;
+                            case '4':
+                                curState = states.Move4After6;
+                                break;
+                            case '5':
+                                curState = states.Move5After6;
+                                break;
+                            case '6':
+                                curState = states.Move6After6;
+                                break;
+                            case '7':
+                                curState = states.Move7After6;
+                                break;
+                            case '8':
+                                curState = states.Move8After6;
+                                break;
+                            case '9':
+                                curState = states.Move9After6;
+                                break;
+                        }
+                    }
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+
+            }
+            else if (curState.Equals(states.SeekNumRAfter7))
+            {
+                //basically seeking the end of the string
+                replace = 'x';
+                if (curPos == tapeArray.Length - 1)
+                {
+                    goToEnd = false;
+                }
+                if (!goToEnd)
+                {
+                    if (curChar >= 48 && curChar <= 57)
+                    {
+                        tapeArray[curPos] = replace;
+                        switch (curChar)
+                        {
+                            case '0':
+                                curState = states.Move0After7;
+                                break;
+                            case '1':
+                                curState = states.Move1After7;
+                                break;
+                            case '2':
+                                curState = states.Move2After7;
+                                break;
+                            case '3':
+                                curState = states.Move3After7;
+                                break;
+                            case '4':
+                                curState = states.Move4After7;
+                                break;
+                            case '5':
+                                curState = states.Move5After7;
+                                break;
+                            case '6':
+                                curState = states.Move6After7;
+                                break;
+                            case '7':
+                                curState = states.Move7After7;
+                                break;
+                            case '8':
+                                curState = states.Move8After7;
+                                break;
+                            case '9':
+                                curState = states.Move9After7;
+                                break;
+                        }
+                    }
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+
+            }
+            else if (curState.Equals(states.SeekNumRAfter8))
+            {
+                //basically seeking the end of the string
+                replace = 'x';
+                if (curPos == tapeArray.Length - 1)
+                {
+                    goToEnd = false;
+                }
+                if (!goToEnd)
+                {
+                    if (curChar >= 48 && curChar <= 57)
+                    {
+                        tapeArray[curPos] = replace;
+                        switch (curChar)
+                        {
+                            case '0':
+                                curState = states.Move0After8;
+                                break;
+                            case '1':
+                                curState = states.Move1After8;
+                                break;
+                            case '2':
+                                curState = states.Move2After8;
+                                break;
+                            case '3':
+                                curState = states.Move3After8;
+                                break;
+                            case '4':
+                                curState = states.Move4After8;
+                                break;
+                            case '5':
+                                curState = states.Move5After8;
+                                break;
+                            case '6':
+                                curState = states.Move6After8;
+                                break;
+                            case '7':
+                                curState = states.Move7After8;
+                                break;
+                            case '8':
+                                curState = states.Move8After8;
+                                break;
+                            case '9':
+                                curState = states.Move9After8;
+                                break;
+                        }
+                    }
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+
+            }
+            else if (curState.Equals(states.SeekNumRAfter9))
+            {
+                //basically seeking the end of the string
+                replace = 'x';
+                if (curPos == tapeArray.Length - 1)
+                {
+                    goToEnd = false;
+                }
+                if (!goToEnd)
+                {
+                    if (curChar >= 48 && curChar <= 57)
+                    {
+                        tapeArray[curPos] = replace;
+                        switch (curChar)
+                        {
+                            case '0':
+                                curState = states.Move0After9;
+                                break;
+                            case '1':
+                                curState = states.Move1After9;
+                                break;
+                            case '2':
+                                curState = states.Move2After9;
+                                break;
+                            case '3':
+                                curState = states.Move3After9;
+                                break;
+                            case '4':
+                                curState = states.Move4After9;
+                                break;
+                            case '5':
+                                curState = states.Move5After9;
+                                break;
+                            case '6':
+                                curState = states.Move6After9;
+                                break;
+                            case '7':
+                                curState = states.Move7After9;
+                                break;
+                            case '8':
+                                curState = states.Move8After9;
+                                break;
+                            case '9':
+                                curState = states.Move9After9;
+                                break;
+                        }
+                    }
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+
             }
             curTape = TapeArrayToString(tapeArray);
             Console.WriteLine(TapeArrayToString(tapeArray));
