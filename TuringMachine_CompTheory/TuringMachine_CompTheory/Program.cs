@@ -11,7 +11,7 @@ namespace TuringMachine_CompTheory
         
         public static void Main(string[] args)
         {
-            string tape = "=1+1";
+            string tape = "=15+6";
             Machine m = new Machine(tape);
             m.StartMachine();
             Console.ReadLine();
