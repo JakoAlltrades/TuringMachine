@@ -14,6 +14,7 @@ namespace TuringMachine_CompTheory
         string curTape;
         bool tapeIsDone = false;
         bool goToEnd = false;
+        bool goToBegin = false;
         enum states
         {
             SeekPlus,
@@ -28,7 +29,6 @@ namespace TuringMachine_CompTheory
             Move7L,
             Move8L,
             Move9L,
-            SeekEnd,
             SeekNumRAfter0,
             SeekNumRAfter1,
             SeekNumRAfter2,
@@ -229,6 +229,10 @@ namespace TuringMachine_CompTheory
                             break;
                     }
                 }
+                else if(curChar == '=')//the second number longer ie: =2+13
+                {
+                    curState = states.Move0L;
+                }
                 MoveLeft();
             }
             else if (curState.Equals(states.Move0L))
@@ -410,7 +414,6 @@ namespace TuringMachine_CompTheory
                 {
                     MoveLeft();
                 }
-               
             }
             else if(curState.Equals(states.SeekNumRAfter0))
             {
@@ -457,6 +460,12 @@ namespace TuringMachine_CompTheory
                                 curState = states.Move9After0;
                                 break;
                         }
+                        goToBegin = true;
+                    }
+                    else if (curChar == '+')//the numbers same length ie: =2+1
+                    {
+                        curState = states.Move0After0;
+                        tapeIsDone = true;
                     }
                     MoveLeft();
                 }
@@ -464,7 +473,6 @@ namespace TuringMachine_CompTheory
                 {
                     MoveRight();
                 }
-
             }
             else if (curState.Equals(states.SeekNumRAfter1))
             {
@@ -512,6 +520,11 @@ namespace TuringMachine_CompTheory
                                 curState = states.Move9After1;
                                 break;
                         }
+                        goToBegin = true;
+                    }
+                    else if (curChar == '+')//the first number os longer ie: =12+1
+                    {
+                        curState = states.Move0After1;
                     }
                     MoveLeft();
                 }
@@ -519,7 +532,6 @@ namespace TuringMachine_CompTheory
                 {
                     MoveRight();
                 }
-
             }
             else if (curState.Equals(states.SeekNumRAfter2))
             {
@@ -567,6 +579,11 @@ namespace TuringMachine_CompTheory
                                 curState = states.Move9After2;
                                 break;
                         }
+                        goToBegin = true;
+                    }
+                    else if (curChar == '+')//the first number os longer ie: =12+1
+                    {
+                        curState = states.Move0After2;
                     }
                     MoveLeft();
                 }
@@ -622,6 +639,11 @@ namespace TuringMachine_CompTheory
                                 curState = states.Move9After3;
                                 break;
                         }
+                        goToBegin = true;
+                    }
+                    else if (curChar == '+')//the first number os longer ie: =12+1
+                    {
+                        curState = states.Move0After3;
                     }
                     MoveLeft();
                 }
@@ -677,6 +699,11 @@ namespace TuringMachine_CompTheory
                                 curState = states.Move9After4;
                                 break;
                         }
+                        goToBegin = true;
+                    }
+                    else if (curChar == '+')//the first number os longer ie: =12+1
+                    {
+                        curState = states.Move0After4;
                     }
                     MoveLeft();
                 }
@@ -684,7 +711,6 @@ namespace TuringMachine_CompTheory
                 {
                     MoveRight();
                 }
-
             }
             else if (curState.Equals(states.SeekNumRAfter5))
             {
@@ -732,6 +758,11 @@ namespace TuringMachine_CompTheory
                                 curState = states.Move9After5;
                                 break;
                         }
+                        goToBegin = true;
+                    }
+                    else if (curChar == '+')//the first number os longer ie: =12+1
+                    {
+                        curState = states.Move0After5;
                     }
                     MoveLeft();
                 }
@@ -739,7 +770,6 @@ namespace TuringMachine_CompTheory
                 {
                     MoveRight();
                 }
-
             }
             else if (curState.Equals(states.SeekNumRAfter6))
             {
@@ -787,6 +817,11 @@ namespace TuringMachine_CompTheory
                                 curState = states.Move9After6;
                                 break;
                         }
+                        goToBegin = true;
+                    }
+                    else if (curChar == '+')//the first number os longer ie: =12+1
+                    {
+                        curState = states.Move0After6;
                     }
                     MoveLeft();
                 }
@@ -842,6 +877,11 @@ namespace TuringMachine_CompTheory
                                 curState = states.Move9After7;
                                 break;
                         }
+                        goToBegin = true;
+                    }
+                    else if (curChar == '+')//the first number os longer ie: =12+1
+                    {
+                        curState = states.Move0After7;
                     }
                     MoveLeft();
                 }
@@ -897,6 +937,11 @@ namespace TuringMachine_CompTheory
                                 curState = states.Move9After8;
                                 break;
                         }
+                        goToBegin = true;
+                    }
+                    else if (curChar == '+')//the first number os longer ie: =12+1
+                    {
+                        curState = states.Move0After8;
                     }
                     MoveLeft();
                 }
@@ -952,6 +997,11 @@ namespace TuringMachine_CompTheory
                                 curState = states.Move9After9;
                                 break;
                         }
+                        goToBegin = true;
+                    }
+                    else if (curChar == '+')//the first number os longer ie: =12+1
+                    {
+                        curState = states.Move0After9;
                     }
                     MoveLeft();
                 }
@@ -960,6 +1010,28 @@ namespace TuringMachine_CompTheory
                     MoveRight();
                 }
 
+            }
+            else if(curState.Equals(states.Move2After7))
+            {
+                seek = '7';
+                replace = '9';
+                if(curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if(!goToBegin)
+                {
+                    if(curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
             }
             curTape = TapeArrayToString(tapeArray);
             Console.WriteLine(TapeArrayToString(tapeArray));
@@ -975,7 +1047,6 @@ namespace TuringMachine_CompTheory
             return result;  
         }
 
-
         public Machine(string tape)
         {
             initialTape = tape;
@@ -990,8 +1061,6 @@ namespace TuringMachine_CompTheory
         public void MoveRight()
         {
             curPos = curPos + 1;
-        }
-
-        
+        } 
     }
 }
