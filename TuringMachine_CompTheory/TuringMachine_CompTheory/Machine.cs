@@ -1033,6 +1033,28 @@ namespace TuringMachine_CompTheory
                     MoveLeft();
                 }
             }
+            else if (curState.Equals(states.Move1After1))
+            {
+                seek = '1';
+                replace = '2';
+                if (curPos == 0)
+                {
+                    goToBegin = false;
+                }
+                if (!goToBegin)
+                {
+                    if (curChar == seek)
+                    {
+                        tapeArray[curPos] = replace;
+                        curState = states.SeekPlus;
+                    }
+                    MoveRight();
+                }
+                else
+                {
+                    MoveLeft();
+                }
+            }
             curTape = TapeArrayToString(tapeArray);
             Console.WriteLine(TapeArrayToString(tapeArray));
         }

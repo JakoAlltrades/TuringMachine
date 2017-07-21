@@ -11,9 +11,10 @@ namespace TuringMachine_CompTheory
         
         public static void Main(string[] args)
         {
-            string tape = "=7+2";
+            string tape = "=1+1";
             Machine m = new Machine(tape);
             m.StartMachine();
+            Console.ReadLine();
         }
         
         
