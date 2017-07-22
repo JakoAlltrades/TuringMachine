@@ -496,10 +496,24 @@ namespace TuringMachine_CompTheory
                         switch (curChar)
                         {
                             case '0':
-                                curState = states.Move0After0;
+                                if(!carryToNextSpace)
+                                {
+                                    curState = states.Move0After0;
+                                }
+                                else
+                                {
+                                    curState = states.Move1After0;
+                                }
                                 break;
                             case '1':
-                                curState = states.Move1After0;
+                                if(!carryToNextSpace)
+                                {
+                                    curState = states.Move1After0;
+                                }
+                                else
+                                {
+                                    curState = states.Move2After0;
+                                }
                                 break;
                             case '2':
                                 curState = states.Move2After0;
