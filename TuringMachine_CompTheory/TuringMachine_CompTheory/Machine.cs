@@ -169,6 +169,7 @@ namespace TuringMachine_CompTheory
             {
                 TapeProcess();
             }
+            Console.WriteLine(curTape);
         }
 
         private void TapeProcess()
@@ -3738,7 +3739,6 @@ namespace TuringMachine_CompTheory
                 }
             }
             curTape = TapeArrayToString(tapeArray);
-           Console.WriteLine(TapeArrayToString(tapeArray));
         }
 
         private string TapeArrayToString(char[] tapeArray)

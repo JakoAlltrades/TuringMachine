@@ -12,11 +12,20 @@ namespace TuringMachine_CompTheory
         public static void Main(string[] args)
         {
             string tape;
-            while (true)
+            bool run = true;
+            while (run)
             {
+                Console.WriteLine("Please enter an addition formula or quit. (ie: =5+5)");
                 tape = Console.ReadLine();
-                Machine m = new Machine(tape);
-                m.StartMachine();
+                if(tape == "quit")
+                {
+                    run = false;
+                }
+                else if (tape != "")
+                {
+                    Machine m = new Machine(tape);
+                    m.StartMachine();
+                }
             }
            
             
