@@ -11,10 +11,15 @@ namespace TuringMachine_CompTheory
         
         public static void Main(string[] args)
         {
-            string tape = "=999+101";
-            Machine m = new Machine(tape);
-            m.StartMachine();
-            Console.ReadLine();
+            string tape;
+            while (true)
+            {
+                tape = Console.ReadLine();
+                Machine m = new Machine(tape);
+                m.StartMachine();
+            }
+           
+            
         }
         
         

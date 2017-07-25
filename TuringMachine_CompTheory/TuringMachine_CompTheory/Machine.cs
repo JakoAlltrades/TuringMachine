@@ -3738,7 +3738,7 @@ namespace TuringMachine_CompTheory
                 }
             }
             curTape = TapeArrayToString(tapeArray);
-            Console.WriteLine(TapeArrayToString(tapeArray));
+           Console.WriteLine(TapeArrayToString(tapeArray));
         }
 
         private string TapeArrayToString(char[] tapeArray)
